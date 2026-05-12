@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YSolar — Residential Energy Advisory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">YSolar</a>
+      <nav class="nav__links">
+        <a href="#services">Services</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__headline">Smart energy decisions<br>for Cape Town homes.</h1>
+      <p class="hero__sub">
+        YSolar helps homeowners understand their energy usage, right-size solar and storage,
+        and stop overpaying on electricity.
+      </p>
+      <a href="#contact" class="btn">Get a free consultation</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section__title">Services</h2>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card__icon">&#9881;</div>
+          <h3>Energy Audit</h3>
+          <p>
+            We install a non-invasive energy monitor on your DB board and collect real usage data
+            over two weeks. No guessing — actual load profiles, peak demand, and daily patterns.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">&#9728;</div>
+          <h3>Solar &amp; Storage Sizing</h3>
+          <p>
+            Based on your audit, we recommend the right PV and battery capacity for your home —
+            not the largest system a salesperson can commission.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">&#128200;</div>
+          <h3>Ongoing Monitoring</h3>
+          <p>
+            After installation, we continue to track your system performance and flag anomalies
+            so faults are caught early and your investment keeps paying off.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="section section--alt" id="methodology">
+    <div class="container">
+      <h2 class="section__title">How it works</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num">01</span>
+          <div>
+            <h3>Install the monitor</h3>
+            <p>A compact current-sensor device clips onto your mains cables — no electrician, no rewiring.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step__num">02</span>
+          <div>
+            <h3>Collect two weeks of data</h3>
+            <p>Usage is logged around the clock, capturing seasonal variation, overnight baseline, and daytime peaks.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step__num">03</span>
+          <div>
+            <h3>Analysis &amp; report</h3>
+            <p>We present a plain-language breakdown of where your money goes and what will actually save it.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step__num">04</span>
+          <div>
+            <h3>Vendor-neutral recommendations</h3>
+            <p>We do not sell hardware. Our recommendations are based solely on your data and current market pricing.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container about">
+      <div class="about__text">
+        <h2 class="section__title">About</h2>
+        <p>
+          <!-- PLACEHOLDER: founder bio goes here -->
+          YSolar was founded by [Founder Name], a [background blurb].
+          With experience in [relevant experience], the goal is to bring
+          data-driven rigour to a market full of oversized quotes and
+          undersized results.
+        </p>
+        <p>
+          Based in Cape Town, South Africa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <h2 class="section__title">Get in touch</h2>
+      <p class="section__lead">Fill in the form and we will get back to you within one business day.</p>
+
+      <!-- Formspree action URL: replace YOUR_FORM_ID with the ID from formspree.io -->
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>
+          Name
+          <input type="text" name="name" required placeholder="Your name" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </label>
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" placeholder="+27 ..." />
+        </label>
+        <label>
+          Suburb / Area
+          <input type="text" name="area" placeholder="e.g. Kenilworth, Cape Town" />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" placeholder="Tell us a bit about your situation..."></textarea>
+        </label>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>&copy; 2026 YSolar. Cape Town, South Africa.</span>
+      <span>energy.nostress.org.za</span>
+    </div>
+  </footer>
+
+</body>
+</html>
