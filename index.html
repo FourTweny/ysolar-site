@@ -3,27 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YSolar — Residential Energy Advisory</title>
+  <title>YSolar · Residential Energy Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- NAV -->
-  <header class="nav">
-    <div class="container nav__inner">
-      <a href="#" class="nav__logo">YSolar</a>
+  <header class="nav" id="nav">
+    <div class="collapse collapse--coords">
+      <div class="collapse__inner">
+        <div class="coords">
+          <div class="session">
+            <span class="live">Cape Town</span>
+            <span class="dim">&middot;</span>
+            <span>33.9249&deg;S / 18.4241&deg;E</span>
+          </div>
+          <div class="session">
+            <span class="dim" id="navDate">15 May 2026</span>
+            <span class="session-val" id="navTime">14:42 SAST</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav__main">
+      <div class="nav__brand">
+        <div class="monogram"><span>Y</span></div>
+        <div class="nav__wordmark-wrap">
+          <a href="#top" class="nav__wordmark">Y<span class="bold">solar</span></a>
+          <div class="collapse collapse--tagline">
+            <div class="collapse__inner">
+              <span class="nav__tagline">Measure first, then advise.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <nav class="nav__links">
-        <a href="#services">Services</a>
-        <a href="#methodology">Methodology</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" class="nav__link"><span class="num">01</span>Services</a>
+        <a href="#methodology" class="nav__link"><span class="num">02</span>Methodology</a>
+        <a href="#about" class="nav__link"><span class="num">03</span>About</a>
       </nav>
+
+      <div class="nav__cta-wrap">
+        <a href="#contact" class="nav__cta">Book consult</a>
+        <div class="collapse collapse--sub">
+          <div class="collapse__inner">
+            <span class="nav__cta-sub">or just say hello</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse collapse--sunarc">
+      <div class="collapse__inner">
+        <svg class="sunarc" viewBox="0 0 1000 75" preserveAspectRatio="none">
+          <line x1="0" y1="68" x2="1000" y2="68" class="sunarc-track" />
+          <line x1="80" y1="62" x2="80" y2="72" class="sunarc-tick" />
+          <line x1="500" y1="60" x2="500" y2="72" class="sunarc-tick" />
+          <line x1="920" y1="62" x2="920" y2="72" class="sunarc-tick" />
+          <text x="80" y="14" class="sunarc-label" text-anchor="middle">Sunrise</text>
+          <text x="80" y="28" class="sunarc-label-time" text-anchor="middle">06:42</text>
+          <text x="500" y="14" class="sunarc-label" text-anchor="middle">Solar Noon</text>
+          <text x="500" y="28" class="sunarc-label-time" text-anchor="middle">12:34</text>
+          <text x="920" y="14" class="sunarc-label" text-anchor="middle">Sunset</text>
+          <text x="920" y="28" class="sunarc-label-time" text-anchor="middle">17:51</text>
+          <path d="M 80 68 Q 500 -30 920 68" class="sunarc-arc" />
+          <circle cx="660" cy="22" r="5.5" class="sunarc-marker" id="sunMarker" />
+        </svg>
+      </div>
     </div>
   </header>
+  <div class="nav-spacer" id="navSpacer"></div>
+
+  <span id="top"></span>
 
   <!-- HERO -->
   <section class="hero">
     <div class="container hero__inner">
+      <span class="hero__kicker">Cape Town &middot; Residential energy advisory</span>
       <h1 class="hero__headline">Smart energy decisions<br>for Cape Town homes.</h1>
       <p class="hero__sub">
         YSolar helps homeowners understand their energy usage, right-size solar and storage,
@@ -44,7 +105,7 @@
           <h3>Energy Audit</h3>
           <p>
             We install a non-invasive energy monitor on your DB board and collect real usage data
-            over two weeks. No guessing — actual load profiles, peak demand, and daily patterns.
+            over two weeks. No guessing, actual load profiles, peak demand, and daily patterns.
           </p>
         </div>
 
@@ -52,7 +113,7 @@
           <div class="card__icon">&#9728;</div>
           <h3>Solar &amp; Storage Sizing</h3>
           <p>
-            Based on your audit, we recommend the right PV and battery capacity for your home —
+            Based on your audit, we recommend the right PV and battery capacity for your home,
             not the largest system a salesperson can commission.
           </p>
         </div>
@@ -79,7 +140,7 @@
           <span class="step__num">01</span>
           <div>
             <h3>Install the monitor</h3>
-            <p>A compact current-sensor device clips onto your mains cables — no electrician, no rewiring.</p>
+            <p>A compact current-sensor device clips onto your mains cables, no electrician, no rewiring.</p>
           </div>
         </li>
         <li class="step">
@@ -172,6 +233,90 @@
       <span>ysolar.nostress.org.za</span>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      /* ===== Nav scroll-collapse ===== */
+      const nav = document.getElementById('nav');
+      const spacer = document.getElementById('navSpacer');
+      const SHOW_AT = 12;
+      const HIDE_AT = 48;
+      let isCompact = false;
+      let ticking = false;
+
+      function syncSpacer() {
+        const wasCompact = nav.classList.contains('is-compact');
+        if (wasCompact) nav.classList.remove('is-compact');
+        const h = nav.offsetHeight;
+        if (wasCompact) nav.classList.add('is-compact');
+        spacer.style.height = h + 'px';
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (!isCompact && y > HIDE_AT) {
+            nav.classList.add('is-compact');
+            isCompact = true;
+          } else if (isCompact && y < SHOW_AT) {
+            nav.classList.remove('is-compact');
+            isCompact = false;
+          }
+          ticking = false;
+        });
+      }
+
+      let resizeTick = false;
+      function onResize() {
+        if (resizeTick) return;
+        resizeTick = true;
+        requestAnimationFrame(() => {
+          syncSpacer();
+          resizeTick = false;
+        });
+      }
+
+      syncSpacer();
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncSpacer);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize, { passive: true });
+
+      /* ===== Live clock + sun-arc marker (Cape Town / SAST) ===== */
+      const dateEl = document.getElementById('navDate');
+      const timeEl = document.getElementById('navTime');
+      const marker = document.getElementById('sunMarker');
+      const TZ = 'Africa/Johannesburg';
+      const dateFmt = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, day: '2-digit', month: 'short', year: 'numeric' });
+      const timeFmt = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit', hour12: false });
+      // Static daylight window (representative; seasonal accuracy is an open item).
+      const SUNRISE_H = 6.7;
+      const SUNSET_H = 17.85;
+
+      function updateClock() {
+        const now = new Date();
+        dateEl.textContent = dateFmt.format(now);
+        const parts = timeFmt.formatToParts(now);
+        let hh = 0, mm = 0;
+        for (const p of parts) {
+          if (p.type === 'hour') hh = parseInt(p.value, 10);
+          if (p.type === 'minute') mm = parseInt(p.value, 10);
+        }
+        timeEl.textContent = String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ' SAST';
+        // Marker position along the quadratic sun-arc.
+        let t = (hh + mm / 60 - SUNRISE_H) / (SUNSET_H - SUNRISE_H);
+        t = Math.max(0, Math.min(1, t));
+        marker.setAttribute('cx', 80 + 840 * t);
+        marker.setAttribute('cy', 68 - 196 * t + 196 * t * t);
+      }
+
+      updateClock();
+      setInterval(updateClock, 60000);
+    })();
+  </script>
 
 </body>
 </html>
