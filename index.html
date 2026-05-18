@@ -84,13 +84,38 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero__inner">
-      <span class="hero__kicker">Cape Town &middot; Residential energy advisory</span>
-      <h1 class="hero__headline">Smart energy decisions<br>for Cape Town homes.</h1>
-      <p class="hero__sub">
-        YSolar helps homeowners understand their energy usage, right-size solar and storage,
-        and stop overpaying on electricity.
-      </p>
-      <a href="#contact" class="btn">Get a free consultation</a>
+      <div class="hero__copy">
+        <span class="hero__kicker">Cape Town &middot; Residential energy advisory</span>
+        <h1 class="hero__headline">Smart energy decisions for Cape Town homes.</h1>
+        <p class="hero__sub">
+          YSolar helps homeowners understand their energy usage, right-size solar and storage,
+          and stop overpaying on electricity.
+        </p>
+        <a href="#contact" class="btn">Get a free consultation</a>
+      </div>
+
+      <figure class="hero__panel">
+        <figcaption class="hero__panel-head">
+          <span>Sample load profile</span>
+          <span class="hero__panel-meta">one home &middot; 24 h</span>
+        </figcaption>
+        <svg class="loadcurve" viewBox="0 0 320 150" aria-hidden="true">
+          <line class="loadcurve-grid" x1="0" y1="48" x2="320" y2="48" />
+          <line class="loadcurve-grid" x1="0" y1="89" x2="320" y2="89" />
+          <line class="loadcurve-grid" x1="0" y1="130" x2="320" y2="130" />
+          <path class="loadcurve-area" d="M 0 120 L 40 122 L 80 118 L 93 71 L 107 66 L 120 98 L 160 108 L 200 106 L 227 76 L 253 30 L 267 37 L 280 69 L 293 96 L 320 118 L 320 130 L 0 130 Z" />
+          <path class="loadcurve-line" d="M 0 120 L 40 122 L 80 118 L 93 71 L 107 66 L 120 98 L 160 108 L 200 106 L 227 76 L 253 30 L 267 37 L 280 69 L 293 96 L 320 118" />
+          <circle class="loadcurve-peak-ring" cx="253" cy="30" r="7" />
+          <circle class="loadcurve-peak" cx="253" cy="30" r="3" />
+          <text class="loadcurve-peak-label" x="253" y="17" text-anchor="middle">evening peak</text>
+        </svg>
+        <div class="hero__panel-foot">
+          <span>00:00</span>
+          <span>12:00</span>
+          <span>24:00</span>
+        </div>
+        <p class="hero__panel-cap">A real demand pattern, surfaced before any installer quote.</p>
+      </figure>
     </div>
   </section>
 
