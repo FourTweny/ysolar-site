@@ -564,7 +564,7 @@ a { color: inherit; }
 .step p {
   color: var(--ink-soft);
   font-size: 0.95rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* --- About --- */
