@@ -23,14 +23,17 @@ How to use:
   Cape Town's coordinates (33.9249 S, 18.4241 E), so the arc is correct
   year-round.
 
-## Visual design
+## Copy
 
-- [ ] **Replace the service-card emoji icons.**
-  The three cards in the Services section use emoji glyphs (gear, sun, chart).
-  They render inconsistently across platforms and are the weakest detail
-  against the editorial Instrument Serif type.
-  *Done when:* emoji are swapped for custom line icons, or a numbered /
-  typographic treatment consistent with the methodology steps.
+- [ ] **Decide the customer-facing monitoring duration.**
+  The brochure copy is currently duration-neutral: the Energy Audit service
+  card and methodology step 02 both describe logging over "a representative
+  monitoring period" without naming a figure. An earlier draft said "two
+  weeks", which was an unverified extrapolation and has been removed. The real
+  metering window is still to be decided (check the `EnergyMonitor` project for
+  the actual logging/metering interval).
+  *Done when:* a concrete monitoring period is decided and written into the
+  Energy Audit card and methodology step 02, replacing the neutral phrasing.
 
 ## Bugs
 
@@ -40,4 +43,5 @@ _None open._
 
 ## Done
 
-_Move completed items here with a date, or delete them. Keep this short._
+- [x] **Replace the service-card emoji icons.** (2026-05-18) Swapped the three
+  emoji glyphs for inline-SVG line icons (gauge, sun, pulse) in `--ink` stroke.
