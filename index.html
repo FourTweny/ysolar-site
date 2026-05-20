@@ -248,33 +248,51 @@
   <!-- CONTACT -->
   <section class="section section--alt" id="contact">
     <div class="container">
-      <h2 class="section__title">Get in touch</h2>
-      <p class="section__lead">Fill in the form and we will get back to you within one business day.</p>
+      <div class="contact-wrap">
+        <h2 class="section__title">Get in touch</h2>
+        <p class="section__lead">Pick how you'd like to be contacted and tell us a bit about your home. We will reply within one business day.</p>
 
-      <form class="contact-form" action="https://formspree.io/f/mgodqnva" method="POST">
-        <label>
-          Name
-          <input type="text" name="name" required placeholder="Your name" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required placeholder="you@example.com" />
-        </label>
-        <label>
-          Phone (optional)
-          <input type="tel" name="phone" placeholder="+27 ..." />
-        </label>
-        <label>
-          Suburb / Area
-          <input type="text" name="area" placeholder="e.g. Kenilworth, Cape Town" />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="4" placeholder="Tell us a bit about your situation..."></textarea>
-        </label>
-        <button type="submit" class="btn">Send message</button>
-      </form>
-
+        <form class="contact-form" action="https://formspree.io/f/mgodqnva" method="POST">
+          <fieldset class="contact-method">
+            <legend class="contact-method__legend">Preferred contact method</legend>
+            <div class="contact-method__options">
+              <label class="contact-method__pill">
+                <input type="radio" name="preferred_contact" value="whatsapp" />
+                <span>WhatsApp</span>
+              </label>
+              <label class="contact-method__pill">
+                <input type="radio" name="preferred_contact" value="email" checked />
+                <span>Email</span>
+              </label>
+              <label class="contact-method__pill">
+                <input type="radio" name="preferred_contact" value="phone" />
+                <span>Phone call</span>
+              </label>
+            </div>
+          </fieldset>
+          <label>
+            Name
+            <input type="text" name="name" required placeholder="Your name" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="you@example.com" />
+          </label>
+          <label>
+            Phone (optional)
+            <input type="tel" name="phone" placeholder="+27 ..." />
+          </label>
+          <label>
+            Suburb / Area
+            <input type="text" name="area" placeholder="e.g. Kenilworth, Cape Town" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Tell us a bit about your situation..."></textarea>
+          </label>
+          <button type="submit" class="btn">Send message</button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -282,7 +300,6 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>&copy; 2026 YSolar. Cape Town, South Africa.</span>
-      <span>ysolar.nostress.org.za</span>
     </div>
   </footer>
 
